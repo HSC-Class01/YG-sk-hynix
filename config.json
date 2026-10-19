@@ -1,11 +1,1 @@
-{
-  "company_name": "SK hynix",
-  "stock_code": "000660",
-  "corp_code": "00164779",
-  "start_year": 2015,
-  "peer_firms": [
-    {"name": "삼성전자", "stock_code": "005930", "relationship": "메모리·시스템 반도체 종합 경쟁사"},
-    {"name": "DB하이텍", "stock_code": "000990", "relationship": "국내 파운드리 비교기업"},
-    {"name": "LX세미콘", "stock_code": "108320", "relationship": "국내 팹리스 비교기업"}
-  ]
-}
+{"company_name":"SK hynix","stock_code":"000660","start_year":2015,"peer_firms":[{"name":"삼성전자","stock_code":"005930"},{"name":"한미반도체","stock_code":"042700"},{"name":"하나마이크론","stock_code":"067310"},{"name":"SFA반도체","stock_code":"036540"},{"name":"DB하이텍","stock_code":"000990"}]}
