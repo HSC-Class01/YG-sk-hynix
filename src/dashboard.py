@@ -7,7 +7,7 @@ DOCS = ROOT / "docs"
 DOCS.mkdir(exist_ok=True)
 metrics_path = ROOT / "data/metrics.csv"
 df = pd.read_csv(metrics_path).fillna("")
-period_order = {"FY": 1, "H1": 2, "Q1": 3, "Q3": 4}
+period_order = {"FY": 0, "Q1": 1, "H1": 2, "Q3": 3}
 df["_order"] = df["period"].map(period_order).fillna(9)
 df = df.sort_values(["year", "_order"], ascending=[True, True])
 cfg = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
