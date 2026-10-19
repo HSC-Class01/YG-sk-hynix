@@ -1,6 +1,9 @@
 name: DART monthly update
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '15 2 1 * *'
   workflow_dispatch:
