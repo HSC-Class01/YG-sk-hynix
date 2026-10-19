@@ -46,7 +46,7 @@ def main():
 
     archive.seek(0)
     with zipfile.ZipFile(archive) as zf:
-        corp = pd.read_xml(zf.open("CORPCODE.xml"))
+        corp = pd.read_xml(zf.open("CORPCODE.xml"), parser="etree")
 
     stock_code = str(CFG["stock_code"]).zfill(6)
     matches = corp[corp["stock_code"].fillna("").astype(str).str.zfill(6) == stock_code]
