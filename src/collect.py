@@ -78,3 +78,6 @@ def main():
         print("First unavailable periods: " + "; ".join(skipped[:12]))
     if not accounts:
         raise RuntimeError("No financial statement rows were returned. Check DART_API_KEY, corp_code, and DART report availability.")
+
+if __name__ == "__main__":
+    main()
