@@ -82,13 +82,14 @@ class PipelineTests(unittest.TestCase):
 
     def test_q3_cumulative_income_and_cash_flow_are_converted_to_quarter(self) -> None:
         rows = []
-        for period, order, revenue, operating_income, cash_flow in (
-            ("H1", 2, 600, 60, 30),
-            ("Q3", 3, 900, 120, 45),
+        for period, order, revenue, operating_income, net_income, cash_flow in (
+            ("H1", 2, 600, 60, 20, 30),
+            ("Q3", 3, 900, 120, 50, 45),
         ):
             for name, amount, sj_div in (
                 ("매출액", revenue, "IS"),
                 ("영업이익", operating_income, "IS"),
+                ("반기순이익" if period == "H1" else "분기순이익", net_income, "IS"),
                 ("자산총계", 1000, "BS"),
                 ("부채총계", 400, "BS"),
                 ("자본총계", 600, "BS"),
@@ -105,6 +106,8 @@ class PipelineTests(unittest.TestCase):
         metrics = analyze(self.root).set_index("period")
         self.assertEqual(metrics.loc["Q3", "revenue"], 300)
         self.assertEqual(metrics.loc["Q3", "operating_income"], 60)
+        self.assertEqual(metrics.loc["H1", "net_income"], 20)
+        self.assertEqual(metrics.loc["Q3", "net_income"], 30)
         self.assertEqual(metrics.loc["Q3", "operating_cash_flow"], 15)
 
 
